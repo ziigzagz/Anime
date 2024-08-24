@@ -1,0 +1,121 @@
+
+
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* Category Sidebar */
+.sidebar {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+}
+
+.sidebar h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: var(--text-color);
+    padding: 10px;
+    display: block;
+    background-color: var(--sidebar-bg-color);
+    border-radius: 4px;
+    box-shadow: var(--box-shadow);
+    transition: background-color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: var(--sidebar-hover-bg-color);
+}
+
+/* Movie List */
+.main-content {
+    flex: 3 1 100%;
+}
+
+.movie-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Mobile */
+    gap: 20px;
+}
+
+/* Tablet (768px ขึ้นไป) */
+@media (min-width: 768px) {
+    .container {
+        flex-wrap: nowrap;
+    }
+
+    .sidebar {
+        flex: 1;
+        margin-right: 20px;
+        max-width: var(--sidebar-width);
+    }
+
+    .main-content {
+        flex: 3;
+    }
+
+    .movie-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Desktop (1024px ขึ้นไป) */
+@media (min-width: 1024px) {
+    .movie-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.movie-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    height: var(--movie-item-height); /* กำหนดความสูงคงที่ */
+}
+
+.movie-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* รักษาสัดส่วนรูปภาพ */
+    display: block;
+}
+
+.movie-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 3px 10px;
+    background: var(--title-bg-color);
+    color: #fff;
+    font-size: var(--title-font-size);
+    text-align: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 1.2em;
+    max-height: calc(1.2em* 3);
+}
