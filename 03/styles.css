@@ -1,0 +1,408 @@
+/* Theme color Gold and Black */
+:root {
+	--neon: 	#da5b20;
+	--yellow: 	#da5b20;
+	--dark-blue: #1f2735;
+	--white: #ffffff; 
+	--light: #f4f4f4;
+    --background-color: #1f2735; /* สีพื้นหลังหลัก */
+    --text-color: #333; /* สีข้อความ */
+    --sidebar-bg-color: #1f2735; /* สีพื้นหลังของ sidebar */
+    --sidebar-hover-bg-color: 	#da5b20; /* สีพื้นหลังของ sidebar เมื่อ hover */
+    --sidebar-width: 250px; /* กำหนดความกว้างของ sidebar */
+    --movie-item-height: 320px; /* กำหนดความสูงของรูปภาพหนัง */
+    --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* กำหนดเงาของรูปภาพ */
+    --title-bg-color: rgba(0, 0, 0, 0.6); /* สีพื้นหลังของชื่อหนัง */
+    --title-font-size: 1.1em; /* ขนาดตัวอักษรของชื่อหนัง */
+	--badge-text-color: #1f2735; /* สีตัวอักษรของ badge */
+}
+
+* {
+	margin: 0px;
+	padding: 0px;
+	font-family: "Kanit";
+	font-size: 16px;
+	box-sizing: border-box;
+}
+
+body {
+	font-family: "Kanit", sans-serif;
+	background-color: var(--dark-blue);
+}
+
+a {
+	text-decoration: none;
+	color: var(--white);
+}
+
+.error {
+	color: var(--danger);
+}
+
+.H1-112-ExtraBold {
+	font-size: 6vw;
+	line-height: 7vw;
+}
+
+.H2-64-ExtraBold {
+	font-size: 64px;
+	line-height: 7vw;
+}
+
+.H3-48-ExtraBold {
+	font-size: 30px;
+	/* line-height: 7vw; */
+}
+
+.H4-32-ExtraBold {
+	font-size: 32px;
+}
+
+.H5-24-ExtraBold {
+	font-size: 24px;
+}
+
+.H6-20-ExtraBold {
+	font-size: 20px;
+}
+
+.B1-16-Medium {
+	font-weight: medium;
+	font-size: 1.5vw;
+}
+
+.B2-14-Medium {
+	font-weight: medium;
+	font-size: 14px;
+}
+
+.B3-12-Medium {
+	font-weight: medium;
+	font-size: 12px;
+}
+
+.f-neon {
+	color: var(--neon);
+}
+
+.f-yellow {
+	color: var(--yellow);
+}
+
+.f-dark-blue {
+	color: var(--dark-blue);
+}
+
+.f-white {
+	color: var(--white);
+}
+
+.text-primary {
+	color: var(--neon);
+}
+
+.btn {
+	border-radius: 8px;
+}
+
+.btn-neon {
+	background-color: var(--neon);
+	color: var(--dark-blue);
+	border: 1px solid transparent;
+}
+
+.nav-link {
+	color: var(--white);
+}
+
+.nav-link:hover {
+	color: var(--neon);
+	/* shadow neon */
+	text-shadow: 0 0 10px var(--neon);
+}
+
+.nav-item:hover {
+	color: var(--neon);
+}
+
+.navbar {
+	background-color: var(--dark-blue);
+	/* position: absolute; */
+	z-index: 1020;
+	display: flex;
+	width: 100vw;
+	/* shadow */
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+
+
+
+/* Category Sidebar */
+.sidebar {
+    flex: 1 1 100%;
+    margin-bottom: 20px;
+}
+
+
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: var(--white);
+    padding: 10px;
+    display: block;
+    background-color: var(--sidebar-bg-color);
+    border-radius: 4px;
+    box-shadow: var(--box-shadow);
+    transition: background-color 0.3s ease;
+	transition: color 0.3s ease;
+}
+
+.sidebar ul li a:hover {
+    background-color: var(--sidebar-hover-bg-color);
+	color: var(--dark-blue);
+	
+}
+
+/* Movie List */
+.main-content {
+    flex: 3 1 100%;
+}
+
+.movie-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Mobile */
+    gap: 20px;
+}
+
+/* Tablet (768px ขึ้นไป) */
+@media (min-width: 768px) {
+    
+
+    /* .sidebar {
+        flex: 1;
+        margin-right: 20px;
+        max-width: var(--sidebar-width);
+    } */
+
+    .main-content {
+        flex: 3;
+    }
+
+    .movie-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Desktop (1024px ขึ้นไป) */
+@media (min-width: 1024px) {
+    .movie-list {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.movie-item {
+    position: relative;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--box-shadow);
+    height: var(--movie-item-height); /* กำหนดความสูงคงที่ */
+	transition: transform 0.3s ease; /* Smooth transition effect */
+}
+.movie-item:hover {
+	transform: scale(1.05); /* Scale up the image slightly */
+}
+
+.movie-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* รักษาสัดส่วนรูปภาพ */
+    display: block;
+}
+
+.movie-title {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+	height: 50px;
+    padding: 3px 10px;
+    background: var(--title-bg-color);
+    color: var(--white);
+    font-size: var(--title-font-size);
+    text-align: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    line-height: 1.2em;
+    max-height: calc(1.3em*2);
+}
+
+.movie-badges {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.badge {
+    display: inline-block;
+    background-color: var(--neon);
+    color: var(--dark-blue);
+    border-radius: 3px;
+    font-size: 0.9em;
+    margin-bottom: 5px; /* เว้นระยะห่างระหว่าง badge */
+}
+  /* Pagination */
+  .pagination {
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+/* Additional Styling for Movie Detail */
+.movie-detail {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding: 20px;
+	background-color: var(--background-color);
+}
+
+.movie-detail .movie-header {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	max-width: 800px;
+	margin-bottom: 20px;
+}
+
+.movie-detail .movie-header img {
+	width: 100%;
+	max-width: 600px;
+	height: auto;
+	border-radius: var(--border-radius);
+}
+
+
+.movie-detail .movie-header .badges {
+	display: flex;
+	gap: 10px;
+	margin-top: 10px;
+}
+
+.movie-detail .movie-header .badge {
+	
+	color: var(--badge-text-color);
+	padding: 5px 10px;
+	border-radius: 3px;
+	font-size: 0.9em;
+}
+.movie-detail .movie-description {
+	max-width: 800px;
+	text-align: center;
+	margin-bottom: 20px;
+	padding: 0 20px;
+}
+
+.movie-detail .movie-description p {
+	font-size: var(--font-size-body);
+}
+
+.movie-detail .episode-list {
+	width: 100%;
+	max-width: 800px;
+}
+
+.movie-detail .episode-list h2 {
+	font-size: var(--font-size-heading);
+	margin-bottom: 10px;
+
+}
+
+.movie-detail .episode-list ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+
+.movie-detail .episode-list ul li {
+	padding: 10px;
+	background-color: var(--light);
+	border-radius: var(--border-radius);
+	margin-bottom: 10px;
+	box-shadow: var(--box-shadow);
+}
+.movie-detail .episode-list ul li.active {
+	background-color: var(--neon);
+}
+
+.movie-detail .episode-list ul li a {
+	color: var(--highlight-color);
+	text-decoration: none;
+}
+
+.movie-detail .episode-list ul li a:hover {
+	text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+	.movie-detail .movie-header {
+		padding: 10px;
+	}
+
+	.movie-detail .movie-header h1 {
+		font-size: 1.5em;
+	}
+	.movie-detail .movie-description p {
+		font-size: 0.9em;
+	}
+}
+
+@media (max-width: 480px) {
+	.movie-detail .movie-header h1 {
+		font-size: 1.2em;
+	}
+	.movie-detail .movie-description p {
+		font-size: 0.8em;
+	}
+}
+
+.pagination a {
+	margin: 0 5px;
+	padding: 10px 15px;
+	text-decoration: none;
+	background-color: var(--pagination-bg-color);
+	color: var(--white);
+	border-radius: 5px;
+	box-shadow: var(--box-shadow);
+	transition: background-color 0.3s ease;
+	border: 1px solid var(--neon);
+}
+
+.pagination a:hover {
+	background-color: var(--pagination-hover-color);
+}
+
+.pagination a.active {
+	background-color: var(--neon);
+	color: var(--dark-blue);
+	border: 1px solid var(--neon);
+}
+
