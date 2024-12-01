@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>AnimeV1</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
-      crossorigin="anonymous" />
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="hamburger-menu.css" />
   </head>
@@ -25,7 +26,8 @@
           data-bs-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent"
           aria-expanded="false"
-          aria-label="Toggle navigation">
+          aria-label="Toggle navigation"
+        >
           <!-- <i class="fa-solid fa-bars text-white"></i> -->
           <input type="checkbox" id="checkbox" />
           <label for="checkbox" class="toggle">
@@ -52,53 +54,6 @@
 
     <div class="container">
       <div class="row my-5">
-        <div class="col-12 col-lg-9">
-          <div class="movie-detail">
-            <div class="movie-header text-white">
-              <h1>Synopsis</h1>
-              <iframe width="560" height="315"
-                src="https://www.youtube.com/embed/D6cBA8bvgdw?si=MZye3QEW7NXYJr5g"
-                title="YouTube video player" frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen></iframe>
-              <!-- <img
-                src="img/09fae26568b5d0ec6e2d9dff13b2a269.jpg"
-                alt="Movie Title"
-              /> -->
-              <div class="badges">
-                <span class="badge">ซับไทย</span>
-                <span class="badge">พากย์ไทย</span>
-              </div>
-            </div>
-            <div class="movie-description text-white">
-              <h4>เรื่องย่อ</h4>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam
-                non urna vitae lorem varius elementum. Sed dictum urna eu diam
-                blandit, sit amet fermentum eros tempor. Vestibulum vitae erat
-                dictum, iaculis sapien a, ullamcorper lorem. Fusce sollicitudin,
-                lacus a tincidunt vehicula, nisi eros pharetra ex, sit amet
-                interdum velit risus ac lacus. Curabitur eget mi non eros varius
-                gravida.
-              </p>
-            </div>
-
-            <div class="episode-list">
-              <h2 class=" text-white">Episodes</h2>
-              <ul id="episode-list">
-                <!-- Episodes will be dynamically inserted here -->
-              </ul>
-            </div>
-          </div>
-          <div class="main-content">
-            <h6 class="text-white">เรื่องที่เกี่ยวข้อง</h6>
-            <div class="movie-list" id="movie-list">
-             
-
-            </div>
-          </div>
-        </div>
         <div class="col-12 col-lg-3">
           <!-- Category Sidebar -->
           <div class="sidebar text-white">
@@ -122,9 +77,20 @@
             </ul>
           </div>
         </div>
+        <div class="col-12 col-lg-9">
+          <!-- Main Content -->
+          <div class="main-content">
+            <div class="movie-list" id="movie-list">
+              <!-- Movie items will be dynamically inserted here -->
+            </div>
+            <div class="pagination" id="pagination">
+              <!-- Pagination buttons will be dynamically inserted here -->
+            </div>
+          </div>
+        </div>
+       
       </div>
     </div>
-
     <footer class="jumbotron footer navbar">
       <div class="container">
         <div class="row p-5">
@@ -151,61 +117,169 @@
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"></script>
+      crossorigin="anonymous"
+    ></script>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
       integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
       crossorigin="anonymous"
-      referrerpolicy="no-referrer"></script>
+      referrerpolicy="no-referrer"
+    ></script>
     <script>
-      // JavaScript to dynamically add episodes
-      const episodes = [
-        { title: "Episode 1: The Beginning", url: "player.html" },
-        { title: "Episode 2: The Middle",  url: "player.html" },
-        { title: "Episode 3: The End",  url: "player.html" },
-        // Add more episodes as needed
-      ];
-
-      const episodeListElement = document.getElementById("episode-list");
-
-      episodes.forEach((episode) => {
-        const listItem = document.createElement("li");
-        const link = document.createElement("a");
-        link.href = episode.url;
-        link.textContent = episode.title;
-        listItem.appendChild(link);
-        episodeListElement.appendChild(listItem);
-      });
-
       const movies = [
         {
           title: "Movie Title 1 with a Long Name That Might Exceed Two Lines",
-          image: "img/09fae26568b5d0ec6e2d9dff13b2a269.jpg",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
           badges: ["ซับไทย"],
         },
         {
           title: "Another Movie Title That Might Be Longer Than Two Lines",
-          image: "img/09fae26568b5d0ec6e2d9dff13b2a269.jpg",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
           badges: ["พากย์ไทย"],
         },
         {
           title: "Movie Title 3",
-          image: "img/09fae26568b5d0ec6e2d9dff13b2a269.jpg",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
           badges: ["ซับไทย", "พากย์ไทย"],
         },
         {
           title: "Movie Title 3",
-          image: "img/09fae26568b5d0ec6e2d9dff13b2a269.jpg",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
           badges: ["ซับไทย"],
         },
         {
           title: "Movie Title 3",
-          image: "img/09fae26568b5d0ec6e2d9dff13b2a269.jpg",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["พากย์ไทย"],
+        },
+        {
+          title: "Movie Title 3",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["ซับไทย"],
+        },
+        {
+          title: "Movie Title 3",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["พากย์ไทย"],
+        },
+        {
+          title: "Movie Title 3",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["ซับไทย"],
+        },
+        {
+          title: "Movie Title 3",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["พากย์ไทย"],
+        },
+        {
+          title: "Movie Title 3",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["พากย์ไทย"],
+        },
+        {
+          title: "Movie Title 3",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["ซับไทย"],
+        },
+        {
+          title: "Movie Title 3",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["พากย์ไทย"],
+        },
+        {
+          title: "Movie Title 3",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["ซับไทย", "พากย์ไทย"],
+        },
+        {
+          title: "Movie Title 3",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["ซับไทย"],
+        },
+        {
+          title: "Movie Title 3",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["พากย์ไทย"],
+        },
+        {
+          title: "Movie Title 1 with a Long Name That Might Exceed Two Lines",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["ซับไทย"],
+        },
+        {
+          title: "Another Movie Title That Might Be Longer Than Two Lines",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["พากย์ไทย"],
+        },
+        {
+          title: "Movie Title 3",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["ซับไทย", "พากย์ไทย"],
+        },
+        {
+          title: "Movie Title 3",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["ซับไทย"],
+        },
+        {
+          title: "Movie Title 3",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["พากย์ไทย"],
+        },
+        {
+          title: "Movie Title 3",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["ซับไทย"],
+        },
+        {
+          title: "Movie Title 3",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["พากย์ไทย"],
+        },
+        {
+          title: "Movie Title 3",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["ซับไทย"],
+        },
+        {
+          title: "Movie Title 3",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["พากย์ไทย"],
+        },
+        {
+          title: "Movie Title 3",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["พากย์ไทย"],
+        },
+        {
+          title: "Movie Title 3",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["ซับไทย"],
+        },
+        {
+          title: "Movie Title 3",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["พากย์ไทย"],
+        },
+        {
+          title: "Movie Title 3",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["ซับไทย", "พากย์ไทย"],
+        },
+        {
+          title: "Movie Title 3",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
+          badges: ["ซับไทย"],
+        },
+        {
+          title: "Movie Title 3",
+          image: "img/52ea8d03047428425c28df1dd67a3ac9.jpg",
           badges: ["พากย์ไทย"],
         },
       ];
 
-      const moviesPerPage = 4;
+      const moviesPerPage = 16;
       let currentPage = 1;
 
       function displayMovies() {
